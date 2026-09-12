@@ -1,0 +1,78 @@
+import React from 'react';
+import { CheckCircle2, Home, Sparkles, TrendingUp, Clock } from 'lucide-react';
+
+export const PainIdentificationSection: React.FC = () => {
+  const highlights = [
+    {
+      title: 'Pode começar em casa',
+      desc: 'Use sua própria cozinha, sem precisar de aluguel ou estrutura especial.',
+      icon: Home,
+      bg: 'bg-[#FAF0E6] text-[#B25E3B] border-[#F2DECE]',
+    },
+    {
+      title: 'Não precisa ter experiência',
+      desc: 'Método passo a passo pensado do absoluto zero para iniciantes.',
+      icon: Sparkles,
+      bg: 'bg-[#EFF6EE] text-emerald-800 border-[#D4EAD1]',
+    },
+    {
+      title: 'Pode começar aos poucos',
+      desc: 'Compre poucos materiais para as primeiras unidades e teste sem risco.',
+      icon: TrendingUp,
+      bg: 'bg-[#F9F3EA] text-amber-800 border-[#EDE1CF]',
+    },
+    {
+      title: 'No seu próprio tempo',
+      desc: 'Produza à noite, nos fins de semana ou nas suas horas livres.',
+      icon: Clock,
+      bg: 'bg-[#F2EDF7] text-purple-900 border-[#E4D9EE]',
+    },
+  ];
+
+  return (
+    <section id="dor" className="py-12 sm:py-16 px-4 bg-[#F5EFE6]/70 border-y border-[#EAE0D2]">
+      <div className="max-w-2xl mx-auto text-center">
+        {/* Dopaminergic Mini-Badge */}
+        <div className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-emerald-100 text-emerald-800 text-xs font-black uppercase tracking-wider mb-3.5 border border-emerald-300 shadow-xs">
+          <Sparkles className="w-3.5 h-3.5 text-emerald-600" />
+          <span>Renda Extra Rápida e Sem Complicação</span>
+        </div>
+
+        {/* Striking Dopaminergic Title */}
+        <h2 className="text-2xl sm:text-3xl md:text-4xl font-black text-[#231D18] leading-[1.2] uppercase mb-3.5 tracking-tight">
+          QUER VER <span className="text-emerald-600 bg-emerald-50 px-2.5 py-0.5 rounded-xl border border-emerald-200 shadow-xs inline-block my-0.5">DINHEIRO EXTRA</span> NO SEU BOLSO SEM PRECISAR SAIR DE CASA?
+        </h2>
+        <p className="text-sm sm:text-base md:text-lg text-[#554A42] max-w-xl mx-auto mb-8 font-medium leading-relaxed">
+          Imagine produzir velas aromáticas lindas na sua própria cozinha e ver encomendas chegando toda semana:
+        </p>
+
+        {/* 4 Checks Blocks */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 sm:gap-4 text-left">
+          {highlights.map((item, idx) => {
+            const Icon = item.icon;
+            return (
+              <div
+                key={idx}
+                className="flex items-start gap-3.5 bg-white p-4.5 rounded-2xl border border-[#E6DDD1] shadow-xs hover:border-[#C85A17]/30 transition-colors"
+              >
+                <div className={`w-10 h-10 rounded-xl flex items-center justify-center shrink-0 border ${item.bg}`}>
+                  <Icon className="w-5 h-5" />
+                </div>
+                <div>
+                  <p className="font-extrabold text-[#231D18] text-sm sm:text-base flex items-center gap-1.5">
+                    <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0 inline" />
+                    <span>{item.title}</span>
+                  </p>
+                  <p className="text-xs sm:text-sm text-[#6C6057] mt-1 leading-snug">
+                    {item.desc}
+                  </p>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+    </section>
+  );
+};
+

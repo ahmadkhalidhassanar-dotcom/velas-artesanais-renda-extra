@@ -1,0 +1,7 @@
+{
+  "name": "Velas Artesanais - Renda Extra",
+  "description": "Página completa de apresentação e vendas do guia e curso prático de velas artesanais para renda extra em casa.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
+
