@@ -1,5 +1,5 @@
 import React from 'react';
-import { BONUS_BUNDLE_IMAGE, BONUSES, PLUS_FIVE_BONUSES } from '../data/content';
+import { BONUS_BUNDLE_IMAGE, BONUS_BUNDLE_IMAGE_FALLBACK, BONUSES, PLUS_FIVE_BONUSES } from '../data/content';
 import { Gift, Award, Calculator, DollarSign, Check } from 'lucide-react';
 
 export const BonusSection: React.FC = () => {
@@ -107,6 +107,12 @@ export const BonusSection: React.FC = () => {
             <div className="rounded-2xl overflow-hidden border-2 border-[#E5DBCF] mb-6 max-w-lg mx-auto shadow-sm">
               <img
                 src={BONUS_BUNDLE_IMAGE}
+                onError={(e) => {
+                  const target = e.currentTarget;
+                  if (target.src !== BONUS_BUNDLE_IMAGE_FALLBACK) {
+                    target.src = BONUS_BUNDLE_IMAGE_FALLBACK;
+                  }
+                }}
                 alt="Mockup do pacote de bônus extras de velas artesanais"
                 className="w-full h-auto object-cover max-h-[320px]"
                 referrerPolicy="no-referrer"

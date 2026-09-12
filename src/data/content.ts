@@ -6,7 +6,8 @@ export const PRODUCTION_IMAGE = '/production_candles.jpg';
 export const PRODUCTION_IMAGE_FALLBACK = 'https://i.imgur.com/lVkBfzS.jpeg';
 export const COURSE_MOCKUP_IMAGE = '/course_mockup.png';
 export const COURSE_MOCKUP_IMAGE_FALLBACK = 'https://i.imgur.com/SVpQmTZ.png';
-export const BONUS_BUNDLE_IMAGE = '/src/assets/images/bonus_bundle_1789069562937.jpg';
+export const BONUS_BUNDLE_IMAGE = '/bonus_bundle_plus4.jpeg';
+export const BONUS_BUNDLE_IMAGE_FALLBACK = 'https://i.imgur.com/mbPM2Fc.jpeg';
 
 export const STUDENT_PROOFS: StudentProof[] = [
   {
