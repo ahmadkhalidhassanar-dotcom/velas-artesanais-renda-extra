@@ -54,37 +54,99 @@
       })();
     </script>
     <script>
-      // Prevent circular structure errors when third-party scripts log DOM elements containing React Fiber references
+      // Prevent circular structure errors when third-party scripts, React Fiber, or platform loggers serialize DOM elements or events
       (function() {
-        var cleanArg = function(arg) {
+        var cleanArg = function(arg, seen) {
+          if (!seen) seen = new WeakSet();
+          if (arg === null || arg === undefined) return arg;
+          if (typeof arg !== 'object') return arg;
+          
           if (arg instanceof Element || arg instanceof Node) {
-            return "<" + arg.tagName + (arg.id ? " id=\"" + arg.id + "\"" : "") + (arg.className ? " class=\"" + arg.className + "\"" : "") + ">";
+            return "<" + (arg.tagName || "Node") + (arg.id ? " id=\"" + arg.id + "\"" : "") + (arg.className ? " class=\"" + arg.className + "\"" : "") + ">";
           }
+          if (arg instanceof Event) {
+            return { type: arg.type, target: cleanArg(arg.target, seen) };
+          }
+          if (seen.has(arg)) {
+            return "[Circular]";
+          }
+          seen.add(arg);
+
           if (Array.isArray(arg)) {
-            return arg.map(cleanArg);
+            return arg.map(function(item) { return cleanArg(item, seen); });
           }
-          return arg;
+
+          var copy = {};
+          for (var key in arg) {
+            if (Object.prototype.hasOwnProperty.call(arg, key)) {
+              if (key.indexOf("__reactFiber") === 0 || key.indexOf("__reactInternalInstance") === 0 || key === "stateNode") {
+                continue;
+              }
+              try {
+                copy[key] = cleanArg(arg[key], seen);
+              } catch (e) {
+                copy[key] = "[Unserializable]";
+              }
+            }
+          }
+          return copy;
         };
 
+        // Protect JSON.stringify against circular structures (e.g. React Fiber on HTML elements)
+        var origJSONStringify = JSON.stringify;
+        JSON.stringify = function(value, replacer, space) {
+          var seen = new WeakSet();
+          var safeReplacer = function(key, val) {
+            if (key.indexOf("__reactFiber") === 0 || key.indexOf("__reactInternalInstance") === 0 || key === "stateNode") {
+              return undefined;
+            }
+            if (val instanceof Element || val instanceof Node) {
+              return "<" + (val.tagName || "Node") + (val.id ? " id=\"" + val.id + "\"" : "") + ">";
+            }
+            if (typeof val === "object" && val !== null) {
+              if (seen.has(val)) {
+                return "[Circular]";
+              }
+              seen.add(val);
+            }
+            if (typeof replacer === "function") {
+              return replacer.call(this, key, val);
+            }
+            return val;
+          };
+
+          try {
+            return origJSONStringify.call(JSON, value, safeReplacer, space);
+          } catch (err) {
+            try {
+              var sanitized = cleanArg(value);
+              return origJSONStringify.call(JSON, sanitized, null, space);
+            } catch (fallbackErr) {
+              return "\"[Circular or Unserializable Object]\"";
+            }
+          }
+        };
+
+        // Protect console methods
         var originalLog = console.log;
         var originalWarn = console.warn;
         var originalError = console.error;
         var originalInfo = console.info;
 
         console.log = function() {
-          var args = Array.prototype.slice.call(arguments).map(cleanArg);
+          var args = Array.prototype.slice.call(arguments).map(function(a) { return cleanArg(a); });
           return originalLog.apply(console, args);
         };
         console.warn = function() {
-          var args = Array.prototype.slice.call(arguments).map(cleanArg);
+          var args = Array.prototype.slice.call(arguments).map(function(a) { return cleanArg(a); });
           return originalWarn.apply(console, args);
         };
         console.error = function() {
-          var args = Array.prototype.slice.call(arguments).map(cleanArg);
+          var args = Array.prototype.slice.call(arguments).map(function(a) { return cleanArg(a); });
           return originalError.apply(console, args);
         };
         console.info = function() {
-          var args = Array.prototype.slice.call(arguments).map(cleanArg);
+          var args = Array.prototype.slice.call(arguments).map(function(a) { return cleanArg(a); });
           return originalInfo.apply(console, args);
         };
       })();

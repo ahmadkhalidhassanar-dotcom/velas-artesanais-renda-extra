@@ -1,6 +1,7 @@
 import React from 'react';
 import { ArrowDown } from 'lucide-react';
-import { HERO_IMAGE, HERO_IMAGE_FALLBACK } from '../data/content';
+import { VslPlayer } from './VslPlayer';
+import { VSL_VIDEO_SRC, VSL_POSTER_SRC } from '../data/content';
 
 interface HeroSectionProps {
   onCtaClick: () => void;
@@ -23,20 +24,9 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onCtaClick }) => {
           Mesmo que você nunca tenha feito uma vela antes, aprenda receitas simples e o passo a passo prático para começar em casa.
         </p>
 
-        {/* Main Finished Candles Image */}
-        <div className="relative mb-7 rounded-3xl overflow-hidden shadow-[0_12px_32px_rgba(40,30,20,0.08)] border-2 border-[#EFE5D6] bg-white">
-          <img
-            src={HERO_IMAGE}
-            alt="Velas artesanais aromáticas feitas em casa para renda extra"
-            className="w-full h-auto object-cover max-h-[420px] mx-auto block"
-            referrerPolicy="no-referrer"
-            loading="eager"
-            onError={(e) => {
-              if (e.currentTarget.src !== HERO_IMAGE_FALLBACK) {
-                e.currentTarget.src = HERO_IMAGE_FALLBACK;
-              }
-            }}
-          />
+        {/* Main VSL Video Player */}
+        <div className="mb-7">
+          <VslPlayer posterUrl={VSL_POSTER_SRC} vimeoId="1226440424" />
         </div>
 
         {/* Primary CTA Button */}
