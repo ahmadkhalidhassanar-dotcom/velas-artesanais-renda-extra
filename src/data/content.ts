@@ -1,9 +1,5 @@
 import { BonusItem, FaqItem, PlanItem, StudentProof, TestimonialItem } from '../types';
 
-export const VSL_VIMEO_ID = '1226440424';
-export const VSL_VIDEO_SRC = 'https://player.vimeo.com/video/1226440424?badge=0&autopause=0&player_id=0&app_id=58479';
-export const VSL_POSTER_SRC = '/vimeo_thumbnail.jpg';
-export const VSL_POSTER_FALLBACK = '/vsl_video_poster.jpg';
 export const HERO_IMAGE = '/hero_candles.jpg';
 export const HERO_IMAGE_FALLBACK = 'https://i.imgur.com/rjncgBl.jpeg';
 export const PRODUCTION_IMAGE = '/production_candles.jpg';
