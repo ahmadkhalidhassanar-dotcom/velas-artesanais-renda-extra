@@ -31,13 +31,17 @@ export const VslPlayer: React.FC<VslPlayerProps> = ({
 
       {/* Vimeo Embedded Player */}
       {isPlaying ? (
-        <iframe
-          src={`https://player.vimeo.com/video/${vimeoId}?autoplay=1&title=0&byline=0&portrait=0&badge=0&dnt=1`}
-          className="w-full h-full border-0 absolute inset-0"
-          allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
-          referrerPolicy="strict-origin-when-cross-origin"
-          title="VSL Velas Artesanais Lucrativas"
-        />
+        <div className="relative w-full h-full overflow-hidden">
+          <iframe
+            src={`https://player.vimeo.com/video/${vimeoId}?autoplay=1&title=0&byline=0&portrait=0&badge=0&controls=1&dnt=1`}
+            className="w-full h-[108%] -top-[4%] border-0 absolute inset-x-0"
+            allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
+            referrerPolicy="strict-origin-when-cross-origin"
+            title="VSL Velas Artesanais Lucrativas"
+          />
+          {/* Subtle bottom-right protective gradient strip to mask external logo link clicks */}
+          <div className="absolute bottom-0 right-0 w-28 h-12 pointer-events-none z-10" />
+        </div>
       ) : (
         /* High-converting Cover / Play Prompt with Real Video Poster */
         <div
