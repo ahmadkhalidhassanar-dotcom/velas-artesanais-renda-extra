@@ -63,7 +63,7 @@ export const OfferSection: React.FC<OfferSectionProps> = ({ onSelectPlan }) => {
               type="button"
               id="cta-basic-plan"
               onClick={() => onSelectPlan(basicPlan)}
-              className="w-full max-w-sm mx-auto py-3.5 px-5 rounded-xl bg-stone-800 hover:bg-stone-900 active:scale-[0.98] text-white font-bold text-sm sm:text-base transition-colors flex items-center justify-center gap-2 cursor-pointer shadow-sm"
+              className="w-full max-w-sm mx-auto py-3.5 px-5 rounded-xl border-2 border-black bg-[#FAF7F2] hover:bg-[#F2ECE1] active:scale-[0.98] text-black font-extrabold text-sm sm:text-base tracking-wide transition-colors flex items-center justify-center gap-2 cursor-pointer"
             >
               <span>{basicPlan.ctaText}</span>
             </button>

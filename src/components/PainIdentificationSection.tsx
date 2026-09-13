@@ -33,9 +33,9 @@ export const PainIdentificationSection: React.FC = () => {
     <section id="dor" className="py-12 sm:py-16 px-4 bg-[#F5EFE6]/70 border-y border-[#EAE0D2]">
       <div className="max-w-2xl mx-auto text-center">
         {/* Dopaminergic Mini-Badge */}
-        <div className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-emerald-100 text-emerald-800 text-xs font-black uppercase tracking-wider mb-3.5 border border-emerald-300 shadow-xs">
-          <Sparkles className="w-3.5 h-3.5 text-emerald-600" />
-          <span>Renda Extra Rápida e Sem Complicação</span>
+        <div className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-emerald-100 text-emerald-800 text-xs font-black uppercase tracking-wider mb-3.5 border border-emerald-300 shadow-xs max-w-full">
+          <Sparkles className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
+          <span>Comece a vender velas aromáticas e terapêuticas sem sair de casa</span>
         </div>
 
         {/* Striking Dopaminergic Title */}

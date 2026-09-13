@@ -151,11 +151,11 @@ export const PLANS: PlanItem[] = [
     description: 'Para quem quer começar fazendo suas próprias velas.',
     isPopular: false,
     features: [
-      'Curso Prático com Videoaulas',
+      'Acesso ao Método 1.0',
+      'Acesso Vitalício',
       '+90 Receitas de Velas Aromáticas e Terapêuticas',
-      'Apostilas',
     ],
-    ctaText: 'QUERO COMEÇAR POR R$10',
+    ctaText: 'COMPRAR AGORA',
     checkoutUrl: CHECKOUT_URL_BASIC_10,
   },
   {
@@ -167,6 +167,8 @@ export const PLANS: PlanItem[] = [
     isPopular: true,
     badge: '⭐ MAIS ESCOLHIDO',
     features: [
+      'Acesso ao Método 2.0',
+      'Acesso Vitalício',
       'Curso Prático com Videoaulas',
       '+90 Receitas',
       'Apostilas',
