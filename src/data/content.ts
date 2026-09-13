@@ -1,5 +1,6 @@
 import { BonusItem, FaqItem, PlanItem, StudentProof, TestimonialItem } from '../types';
 
+export const HERO_VSL_VIDEO = 'https://www.image2url.com/r2/default/videos/1789342185130-e510e032-0f9e-4eb4-a505-370ff93c0468.mp4';
 export const HERO_IMAGE = '/hero_candles.jpg';
 export const HERO_IMAGE_FALLBACK = 'https://i.imgur.com/rjncgBl.jpeg';
 export const PRODUCTION_IMAGE = '/production_candles.jpg';
