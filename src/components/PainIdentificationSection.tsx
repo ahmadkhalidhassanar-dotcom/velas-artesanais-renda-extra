@@ -1,31 +1,22 @@
 import React from 'react';
-import { CheckCircle2, Home, Sparkles, TrendingUp, Clock } from 'lucide-react';
+import { CheckCircle2, Home, Sparkles, Package } from 'lucide-react';
 
 export const PainIdentificationSection: React.FC = () => {
   const highlights = [
     {
       title: 'Pode começar em casa',
-      desc: 'Use sua própria cozinha, sem precisar de aluguel ou estrutura especial.',
       icon: Home,
       bg: 'bg-[#FAF0E6] text-[#B25E3B] border-[#F2DECE]',
     },
     {
       title: 'Não precisa ter experiência',
-      desc: 'Método passo a passo pensado do absoluto zero para iniciantes.',
       icon: Sparkles,
       bg: 'bg-[#EFF6EE] text-emerald-800 border-[#D4EAD1]',
     },
     {
-      title: 'Pode começar aos poucos',
-      desc: 'Compre poucos materiais para as primeiras unidades e teste sem risco.',
-      icon: TrendingUp,
+      title: 'Ter um produto próprio para vender',
+      icon: Package,
       bg: 'bg-[#F9F3EA] text-amber-800 border-[#EDE1CF]',
-    },
-    {
-      title: 'No seu próprio tempo',
-      desc: 'Produza à noite, nos fins de semana ou nas suas horas livres.',
-      icon: Clock,
-      bg: 'bg-[#F2EDF7] text-purple-900 border-[#E4D9EE]',
     },
   ];
 
@@ -46,25 +37,22 @@ export const PainIdentificationSection: React.FC = () => {
           Imagine produzir velas aromáticas lindas na sua própria cozinha e ver encomendas chegando toda semana:
         </p>
 
-        {/* 4 Checks Blocks */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 sm:gap-4 text-left">
+        {/* 3 Checks Blocks */}
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3.5 sm:gap-4 text-left">
           {highlights.map((item, idx) => {
             const Icon = item.icon;
             return (
               <div
                 key={idx}
-                className="flex items-start gap-3.5 bg-white p-4.5 rounded-2xl border border-[#E6DDD1] shadow-xs hover:border-[#C85A17]/30 transition-colors"
+                className="flex items-center gap-3 bg-white p-4 rounded-2xl border border-[#E6DDD1] shadow-xs hover:border-[#C85A17]/30 transition-colors"
               >
                 <div className={`w-10 h-10 rounded-xl flex items-center justify-center shrink-0 border ${item.bg}`}>
                   <Icon className="w-5 h-5" />
                 </div>
                 <div>
-                  <p className="font-extrabold text-[#231D18] text-sm sm:text-base flex items-center gap-1.5">
+                  <p className="font-extrabold text-[#231D18] text-sm sm:text-base flex items-center gap-1.5 leading-snug">
                     <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0 inline" />
                     <span>{item.title}</span>
-                  </p>
-                  <p className="text-xs sm:text-sm text-[#6C6057] mt-1 leading-snug">
-                    {item.desc}
                   </p>
                 </div>
               </div>
