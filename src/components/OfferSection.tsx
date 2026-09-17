@@ -127,16 +127,13 @@ export const OfferSection: React.FC<OfferSectionProps> = ({ onSelectPlan }) => {
             {/* Large Call to Action Button */}
             <a
               id="cta-complete-plan"
-              href={completePlan.checkoutUrl || 'https://pay.lowify.com.br/checkout?product_id=VeBspe'}
-              onClick={(e) => {
-                if (!completePlan.checkoutUrl) {
-                  e.preventDefault();
-                  onSelectPlan(completePlan);
-                }
+              href="https://pay.lowify.com.br/checkout?product_id=VeBspe"
+              onClick={() => {
+                window.location.href = 'https://pay.lowify.com.br/checkout?product_id=VeBspe';
               }}
               className="w-full py-4 sm:py-4.5 px-6 rounded-2xl bg-gradient-to-r from-[#D96522] via-[#C85A17] to-[#B34C0E] hover:from-[#C85A17] hover:to-[#9E3E08] active:scale-[0.98] text-white font-black text-lg sm:text-xl shadow-[0_12px_28px_-6px_rgba(200,90,23,0.4)] hover:shadow-[0_16px_32px_-4px_rgba(200,90,23,0.5)] transition-all flex items-center justify-center gap-2 cursor-pointer no-underline text-center"
             >
-              <span>{completePlan.ctaText}</span>
+              <span>GARANTIR ACESSO</span>
               <Sparkles className="w-5 h-5 text-amber-200" />
             </a>
 

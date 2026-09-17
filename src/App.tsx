@@ -90,11 +90,11 @@ export default function App() {
         {/* 7. OFERTA */}
         <OfferSection onSelectPlan={handleSelectPlan} />
 
-        {/* 8. GARANTIA DE 7 DIAS */}
-        <GuaranteeSection onCtaClick={scrollToCompletePlan} />
-
-        {/* 9. FAQ */}
+        {/* 8. FAQ */}
         <FaqSection />
+
+        {/* 9. GARANTIA DE 7 DIAS / CTA QUERO COMEÇAR SEM RISCO */}
+        <GuaranteeSection onCtaClick={scrollToCompletePlan} />
       </main>
 
       {/* Footer */}

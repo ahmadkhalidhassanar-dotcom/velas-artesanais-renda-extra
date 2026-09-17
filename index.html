@@ -13,7 +13,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
     <script>
-      // Prevent circular structure errors when third-party scripts log DOM elements containing React Fiber references
+      // Prevent circular structure errors when third-party or tracking scripts serialize DOM elements with React Fiber references
       (function() {
         var cleanArg = function(arg) {
           if (arg instanceof Element || arg instanceof Node) {
@@ -46,6 +46,72 @@
           var args = Array.prototype.slice.call(arguments).map(cleanArg);
           return originalInfo.apply(console, args);
         };
+
+        var originalStringify = JSON.stringify;
+
+        function sanitizeValue(value, seen) {
+          if (value === null || typeof value !== 'object') {
+            return value;
+          }
+          if (typeof Node !== 'undefined' && value instanceof Node) {
+            return {
+              tagName: value.nodeName,
+              id: value.id || undefined,
+              className: value.className || undefined,
+              type: value.type || undefined
+            };
+          }
+          if (seen.has(value)) {
+            return '[Circular]';
+          }
+          seen.add(value);
+
+          if (Array.isArray(value)) {
+            return value.map(function(item) {
+              return sanitizeValue(item, seen);
+            });
+          }
+
+          var result = {};
+          for (var key in value) {
+            if (Object.prototype.hasOwnProperty.call(value, key)) {
+              if (key.indexOf('__react') === 0) {
+                continue;
+              }
+              try {
+                result[key] = sanitizeValue(value[key], seen);
+              } catch (e) {
+                result[key] = '[Unserializable]';
+              }
+            }
+          }
+          return result;
+        }
+
+        JSON.stringify = function(value, replacer, space) {
+          try {
+            return originalStringify.call(JSON, value, replacer, space);
+          } catch (err) {
+            if (err instanceof TypeError && /circular|cyclic/i.test(err.message)) {
+              try {
+                var seen = new WeakSet();
+                var sanitized = sanitizeValue(value, seen);
+                return originalStringify.call(JSON, sanitized, replacer, space);
+              } catch (inner) {
+                return '{}';
+              }
+            }
+            throw err;
+          }
+        };
+
+        window.addEventListener('error', function(event) {
+          if (event && event.message && /Converting circular structure to JSON/i.test(event.message)) {
+            if (typeof event.preventDefault === 'function') event.preventDefault();
+            if (typeof event.stopImmediatePropagation === 'function') event.stopImmediatePropagation();
+            return true;
+          }
+        }, true);
       })();
     </script>
     <!-- UTMFY Script -->
