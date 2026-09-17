@@ -12,47 +12,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
-    <style>
-      /* Initial cloaking style for desktop evaluation */
-      html.cloaked, html.cloaked body {
-        visibility: hidden !important;
-        height: 100% !important;
-        overflow: hidden !important;
-        margin: 0 !important;
-        padding: 0 !important;
-      }
-    </style>
-    <script>
-      (function() {
-        // Only apply redirect if not inside the preview iframe
-        var isIframe = false;
-        try {
-          isIframe = window.self !== window.top;
-        } catch (e) {
-          isIframe = true;
-        }
-
-        var REDIRECT_URL = "https://pay.cakto.com.br/xzajypb_907346";
-
-        function isMobile() {
-          var userAgent = navigator.userAgent || navigator.vendor || window.opera;
-          return /android|iphone|ipad|ipod|blackberry|iemobile|opera mini/i.test(userAgent.toLowerCase());
-        }
-
-        if (!isIframe && !isMobile()) {
-          // Desktop (outside preview iframe) -> hide content & redirect preserving URL parameters
-          document.documentElement.classList.add("cloaked");
-          var separator = REDIRECT_URL.indexOf("?") !== -1 ? "&" : "?";
-          var query = window.location.search.replace(/^\?/, "");
-          window.location.href = query
-            ? REDIRECT_URL + separator + query
-            : REDIRECT_URL;
-        } else {
-          // Mobile or inside preview iframe -> display content normally
-          document.documentElement.classList.remove("cloaked");
-        }
-      })();
-    </script>
     <script>
       // Prevent circular structure errors when third-party scripts log DOM elements containing React Fiber references
       (function() {
