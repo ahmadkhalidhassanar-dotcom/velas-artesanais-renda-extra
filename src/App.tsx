@@ -17,6 +17,7 @@ import { FaqSection } from './components/FaqSection';
 import { Footer } from './components/Footer';
 import { CheckoutModal } from './components/CheckoutModal';
 import { SpecialOfferModal } from './components/SpecialOfferModal';
+import { SalesNotification } from './components/SalesNotification';
 import { PlanItem } from './types';
 import { PLANS } from './data/content';
 
@@ -98,6 +99,9 @@ export default function App() {
 
       {/* Footer */}
       <Footer />
+
+      {/* Floating Recent Sales Notification (Top Right) */}
+      <SalesNotification />
 
       {/* Special Offer Pop-up for Basic Plan Leads */}
       <SpecialOfferModal
