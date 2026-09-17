@@ -1,7 +1,7 @@
 import React from 'react';
 import { PLANS } from '../data/content';
 import { PlanItem } from '../types';
-import { Sparkles, ShieldCheck, CreditCard, Lock, CheckCircle2 } from 'lucide-react';
+import { Sparkles, CreditCard, Lock, CheckCircle2 } from 'lucide-react';
 import { OfferCountdown } from './OfferCountdown';
 
 interface OfferSectionProps {
@@ -152,16 +152,6 @@ export const OfferSection: React.FC<OfferSectionProps> = ({ onSelectPlan }) => {
               </span>
             </div>
           </div>
-        </div>
-
-        {/* Security badges row */}
-        <div className="mt-9 text-center text-xs text-[#6C6057] flex flex-wrap items-center justify-center gap-4 pt-5 border-t border-[#EAE0D2]">
-          <span className="inline-flex items-center gap-1.5 font-bold text-[#231D18]">
-            <ShieldCheck className="w-4 h-4 text-emerald-700" />
-            Garantia incondicional de 7 dias
-          </span>
-          <span className="hidden sm:inline">•</span>
-          <span className="font-medium">Acesso liberado imediatamente após confirmação</span>
         </div>
       </div>
     </section>

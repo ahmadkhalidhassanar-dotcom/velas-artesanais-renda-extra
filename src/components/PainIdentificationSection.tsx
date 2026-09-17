@@ -1,5 +1,5 @@
 import React from 'react';
-import { CheckCircle2, Home, Sparkles, Package } from 'lucide-react';
+import { CheckCircle2, Home, Sparkles, Coins } from 'lucide-react';
 
 export const PainIdentificationSection: React.FC = () => {
   const highlights = [
@@ -14,8 +14,8 @@ export const PainIdentificationSection: React.FC = () => {
       bg: 'bg-[#EFF6EE] text-emerald-800 border-[#D4EAD1]',
     },
     {
-      title: 'Ter um produto próprio para vender',
-      icon: Package,
+      title: 'Comece com pouco investimento',
+      icon: Coins,
       bg: 'bg-[#F9F3EA] text-amber-800 border-[#EDE1CF]',
     },
   ];

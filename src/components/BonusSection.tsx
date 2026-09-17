@@ -19,19 +19,23 @@ export const BonusSection: React.FC = () => {
 
   return (
     <section id="bonus" className="bg-[#F5EFE6]/80 border-y border-[#EAE0D2] pb-14 sm:pb-20">
-      {/* Full-width Black Banner covering entire lateral width */}
-      <div id="antes-de-continuar" className="w-full bg-black text-white py-7 sm:py-9 px-4 text-center mb-10 sm:mb-12 shadow-md scroll-mt-2">
-        <div className="max-w-2xl mx-auto flex flex-col items-center justify-center">
-          <span className="inline-flex items-center justify-center gap-2 text-xl sm:text-2xl md:text-3xl font-black text-white tracking-wide mb-2.5">
+      {/* Full-width Black Banner ONLY on "ANTES DE VOCÊ CONTINUAR..." */}
+      <div id="antes-de-continuar" className="w-full bg-black text-white py-4 sm:py-5 px-4 text-center shadow-md scroll-mt-2">
+        <div className="max-w-2xl mx-auto flex items-center justify-center">
+          <span className="inline-flex items-center justify-center gap-2 text-lg sm:text-xl md:text-2xl font-black text-white tracking-wide">
             <span>👀</span> ANTES DE VOCÊ CONTINUAR...
           </span>
-          <p className="text-sm sm:text-base md:text-lg lg:text-xl font-extrabold text-white leading-snug max-w-xl mx-auto">
-            ESCOLHENDO O PLANO COMPLETO VOCE RECEBE DE BONUS TODOS ESSES MATERIAIS ABAIXO:👇
-          </p>
         </div>
       </div>
 
       <div className="max-w-2xl mx-auto px-4">
+        {/* Text outside the black banner */}
+        <div className="text-center pt-8 sm:pt-10 mb-8 sm:mb-10">
+          <p className="text-base sm:text-lg md:text-xl font-normal text-[#3A332C] uppercase tracking-tight leading-snug max-w-xl mx-auto">
+            ESCOLHENDO O <strong className="font-black text-[#231D18]">PLANO COMPLETO</strong> VOCE RECEBE DE BONUS TODOS ESSES MATERIAIS ABAIXO:👇
+          </p>
+        </div>
+
         {/* Bonus Cards (1, 2, 3, 4) with Real Images */}
         <div className="space-y-7 sm:space-y-9 mb-9">
           {BONUSES.map((bonus) => (
