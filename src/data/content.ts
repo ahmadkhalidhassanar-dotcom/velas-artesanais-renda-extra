@@ -140,9 +140,9 @@ export const PLUS_FIVE_BONUSES = {
   ],
 };
 
-export const CHECKOUT_URL_COMPLETE_REGULAR = 'https://pay.cakto.com.br/7mkzsaq_1103195';
-export const CHECKOUT_URL_COMPLETE_DISCOUNT_19 = 'https://pay.cakto.com.br/3aq7wbb';
-export const CHECKOUT_URL_BASIC_10 = 'https://pay.cakto.com.br/ky2tb6a';
+export const CHECKOUT_URL_COMPLETE_REGULAR = 'https://pay.lowify.com.br/checkout?product_id=VeBspe';
+export const CHECKOUT_URL_COMPLETE_DISCOUNT_19 = 'https://pay.lowify.com.br/checkout?product_id=5ZMYYQ';
+export const CHECKOUT_URL_BASIC_10 = 'https://pay.lowify.com.br/checkout?product_id=wJ1nNX';
 
 export const PLANS: PlanItem[] = [
   {

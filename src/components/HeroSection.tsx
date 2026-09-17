@@ -242,15 +242,18 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onCtaClick }) => {
 
         {/* Primary CTA Button */}
         <div className="w-full max-w-md mx-auto space-y-3">
-          <button
-            type="button"
+          <a
+            href="#antes-de-continuar"
             id="hero-cta-button"
-            onClick={onCtaClick}
-            className="w-full py-4 sm:py-4.5 px-6 rounded-2xl bg-gradient-to-r from-[#D96522] via-[#C85A17] to-[#B34C0E] hover:from-[#C85A17] hover:to-[#9E3E08] active:scale-[0.98] text-white font-extrabold text-lg sm:text-xl shadow-[0_12px_28px_-6px_rgba(200,90,23,0.4)] transition-all duration-200 flex items-center justify-center gap-2.5 cursor-pointer"
+            onClick={(e) => {
+              e.preventDefault();
+              onCtaClick();
+            }}
+            className="w-full py-4 sm:py-4.5 px-6 rounded-2xl bg-gradient-to-r from-[#D96522] via-[#C85A17] to-[#B34C0E] hover:from-[#C85A17] hover:to-[#9E3E08] active:scale-[0.98] text-white font-extrabold text-lg sm:text-xl shadow-[0_12px_28px_-6px_rgba(200,90,23,0.4)] transition-all duration-200 flex items-center justify-center gap-2.5 cursor-pointer text-center"
           >
             <span>QUERO COMEÇAR AGORA</span>
             <ArrowDown className="w-5 h-5 animate-bounce" />
-          </button>
+          </a>
 
           <p className="text-xs sm:text-sm text-[#6C6057] font-medium">
             Acesso imediato • Videoaulas + Apostilas • 7 dias de garantia

@@ -127,7 +127,7 @@ export const OfferSection: React.FC<OfferSectionProps> = ({ onSelectPlan }) => {
             {/* Large Call to Action Button */}
             <a
               id="cta-complete-plan"
-              href={completePlan.checkoutUrl || 'https://pay.cakto.com.br/7mkzsaq_1103195'}
+              href={completePlan.checkoutUrl || 'https://pay.lowify.com.br/checkout?product_id=VeBspe'}
               onClick={(e) => {
                 if (!completePlan.checkoutUrl) {
                   e.preventDefault();

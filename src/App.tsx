@@ -19,7 +19,7 @@ import { CheckoutModal } from './components/CheckoutModal';
 import { SpecialOfferModal } from './components/SpecialOfferModal';
 import { SalesNotification } from './components/SalesNotification';
 import { PlanItem } from './types';
-import { PLANS } from './data/content';
+import { PLANS, CHECKOUT_URL_COMPLETE_DISCOUNT_19, CHECKOUT_URL_BASIC_10 } from './data/content';
 
 export default function App() {
   const [selectedPlan, setSelectedPlan] = useState<PlanItem | null>(null);
@@ -51,12 +51,12 @@ export default function App() {
 
   const handleAcceptDiscount = () => {
     setShowSpecialOffer(false);
-    window.location.href = 'https://pay.cakto.com.br/3aq7wbb';
+    window.location.href = CHECKOUT_URL_COMPLETE_DISCOUNT_19;
   };
 
   const handleDeclineAndBuyBasic = () => {
     setShowSpecialOffer(false);
-    window.location.href = 'https://pay.cakto.com.br/ky2tb6a';
+    window.location.href = CHECKOUT_URL_BASIC_10;
   };
 
   const handleCloseCheckout = () => {
