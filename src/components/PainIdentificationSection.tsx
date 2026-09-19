@@ -29,13 +29,10 @@ export const PainIdentificationSection: React.FC = () => {
           <span>Comece a vender velas aromáticas e terapêuticas sem sair de casa</span>
         </div>
 
-        {/* Striking Dopaminergic Title */}
-        <h2 className="text-2xl sm:text-3xl md:text-4xl font-black text-[#231D18] leading-[1.2] uppercase mb-3.5 tracking-tight">
-          QUER VER <span className="text-emerald-600 bg-emerald-50 px-2.5 py-0.5 rounded-xl border border-emerald-200 shadow-xs inline-block my-0.5">DINHEIRO EXTRA</span> NO SEU BOLSO SEM PRECISAR SAIR DE CASA?
+        {/* Striking Section Title */}
+        <h2 className="text-2xl sm:text-3xl md:text-4xl font-black text-[#231D18] leading-[1.2] uppercase mb-8 tracking-tight">
+          BENEFÍCIOS EXCLUSIVOS
         </h2>
-        <p className="text-sm sm:text-base md:text-lg text-[#554A42] max-w-xl mx-auto mb-8 font-medium leading-relaxed">
-          Imagine produzir velas aromáticas lindas na sua própria cozinha e ver encomendas chegando toda semana:
-        </p>
 
         {/* 3 Checks Blocks */}
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-3.5 sm:gap-4 text-left">
